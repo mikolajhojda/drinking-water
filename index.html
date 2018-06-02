@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>drinking-water</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <div class="nav-wrapper white">
+                <a class="brand-logo center" href="#">
+                    <span class="green-text">Drinking Water</span>
+                </a>
+            </div>
+        </nav>
+        <div class="index container">
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="green-text">Add Water</h2>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input v-model="message" placeholder="How much mililiters did you drink?" id="ml" type="text" class="validate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h4 class="card-title center-align">How much water do you need to drink?</h4>
+                <div class="card-content">
+                    <h5 class="center-align"><span v-if="result>0" class="green-text">{{result}}</span> mililiters</h5>
+                </div>
+                <button v-on:click.prevent="post" class="btn-floating btn-large halfway-fab green">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+            <ul class="collection">
+                <li v-for="water in waters" class="collection-item">
+                    <div>{{water}}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAHBuc8lVRoZuf-lfL_TagX2aS9Lxp58ss",
+            authDomain: "drinking-water-a2c7f.firebaseapp.com",
+            databaseURL: "https://drinking-water-a2c7f.firebaseio.com",
+            projectId: "drinking-water-a2c7f",
+            storageBucket: "",
+            messagingSenderId: "520725390626"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
